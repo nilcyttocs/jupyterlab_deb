@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Pre-installation shell script for Debian package
+
+USER=pi
+WORKSPACE=/home/$USER/jupyter/workspace
+
+SYSTEMD=/etc/systemd/system
+SERVICE=jupyterlab.service
+
+# Stop and disable JupyterLab service
+if [ -f $SYSTEMD/$SERVICE ]; then
+  systemctl is-active $SERVICE > /dev/null 2>&1 && sudo systemctl stop $SERVICE
+  sudo systemctl disable $SERVICE
+  sudo rm -fr $SYSTEMD/$SERVICE
+fi
+
+# Uninstall JupyterLab
+sudo pip3 uninstall -y jupyterlab
+
+# Create JupyterLab workspace directory
+if [ ! -d "$WORKSPACE" ]; then
+  sudo -u $USER bash -c "mkdir -p -m 1775 $WORKSPACE"
+  sudo chown root:$USER $WORKSPACE
+fi

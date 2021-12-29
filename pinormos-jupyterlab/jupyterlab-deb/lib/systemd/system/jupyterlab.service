@@ -1,0 +1,15 @@
+[Unit]
+Description=JupyterLab Service
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=/bin/bash -c "/usr/local/bin/jupyter-lab --allow-root --no-browser --notebook-dir=/home/pi/jupyter/workspace/ --config=/home/pi/.jupyter/jupyter_notebook_config.py"
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/jupyter/workspace/
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
