@@ -22,13 +22,10 @@ fi
 sudo -u $USER bash -c 'cp /var/spool/syna/jupyterlab_configs/ipython_config.py ~/.ipython/profile_default'
 sudo rm -fr /var/spool/syna/jupyterlab_configs
 
-# Install Yarn cache and build jupyterlab-dash into JupyterLab
-sudo mkdir -p /usr/local/share/.cache
-sudo tar -xf /var/spool/syna/yarn_cache/yarn-0.tar.gz -C /usr/local/share/.cache
-sudo tar -xf /var/spool/syna/yarn_cache/yarn-1.tar.gz -C /usr/local/share/.cache
-sudo jupyter lab build
-sudo rm -fr /usr/local/share/.cache/yarn
-sudo rm -fr /var/spool/syna/yarn_cache
+# Update JupyterLab application assets for integration of JupyterDash
+sudo rm -fr /usr/local/share/jupyter/lab
+sudo tar -xf /var/spool/syna/jupyterlab_app/lab.tar.gz /usr/local/share/jupyter
+sudo rm -fr /var/spool/syna/jupyterlab_app
 
 # Patch JupyterLab to trust HTML/JavaScript content by default
 JLAB_CORE=$(find /usr/local/share/jupyter/lab/static/jlab_core.*.js)
