@@ -24,7 +24,7 @@ sudo rm -fr /var/spool/syna/jupyterlab_configs
 
 # Update JupyterLab application assets for integration of JupyterDash
 sudo rm -fr /usr/local/share/jupyter/lab
-sudo tar -xf /var/spool/syna/jupyterlab_app/lab.tar.gz /usr/local/share/jupyter
+sudo tar -xf /var/spool/syna/jupyterlab_app/lab.tar.gz -C /usr/local/share/jupyter
 sudo rm -fr /var/spool/syna/jupyterlab_app
 
 # Patch JupyterLab to trust HTML/JavaScript content by default
