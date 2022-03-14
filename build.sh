@@ -9,5 +9,3 @@ cp wheelhouse/* pinormos-jupyterlab/jupyterlab-deb/var/spool/syna/jupyterlab_whe
 pinormos-jupyterlab/gen-deb.sh
 rm -fr wheelhouse
 rm -fr pinormos-jupyterlab/jupyterlab-deb/var/spool/syna/jupyterlab_wheels/*
-rm -fr jupyterlab_deb.tar.gz
-tar -zcf jupyterlab_deb.tar.gz *
