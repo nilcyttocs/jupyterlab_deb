@@ -382,7 +382,7 @@ c.NotebookApp.ip = '*'
 
 ## The directory to use for notebooks and kernels.
 #  Default: ''
-c.NotebookApp.notebook_dir = '/home/pi/jupyter/workspace'
+c.NotebookApp.notebook_dir = '/home/dsdkuser/jupyter/workspace'
 
 ## Whether to open in a browser after starting. The specific browser used is
 #  platform dependent and determined by the python standard library `webbrowser`

@@ -4,10 +4,10 @@ Description=JupyterLab Service
 [Service]
 Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/bin/bash -c "/usr/local/bin/jupyter-lab --allow-root --no-browser --notebook-dir=/home/pi/jupyter/workspace/ --config=/home/pi/.jupyter/jupyter_notebook_config.py"
-User=pi
-Group=pi
-WorkingDirectory=/home/pi/jupyter/workspace/
+ExecStart=/bin/bash -c "/usr/local/bin/jupyter-lab --no-browser --notebook-dir=/home/dsdkuser/jupyter/workspace/ --config=/home/dsdkuser/.jupyter/jupyter_notebook_config.py"
+User=dsdkuser
+Group=dsdkuser
+WorkingDirectory=/home/dsdkuser/jupyter/workspace/
 Restart=always
 RestartSec=10
 

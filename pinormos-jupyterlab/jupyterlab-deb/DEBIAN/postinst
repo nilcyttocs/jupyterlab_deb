@@ -2,7 +2,7 @@
 
 # Post-installation shell script for Debian package
 
-USER=pi
+USER=dsdkuser
 
 SYSTEMD=/etc/systemd/system
 SERVICE=jupyterlab.service
