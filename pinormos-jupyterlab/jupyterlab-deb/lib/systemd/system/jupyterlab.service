@@ -1,5 +1,6 @@
 [Unit]
 Description=JupyterLab Service
+After=update_daemon.service
 
 [Service]
 Type=simple
