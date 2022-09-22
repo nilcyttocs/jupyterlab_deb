@@ -7,6 +7,8 @@ USER=dsdkuser
 SYSTEMD=/etc/systemd/system
 SERVICE=jupyterlab.service
 
+sudo chown root:root /lib/systemd/system/$SERVICE
+
 # Install JupyterLab
 sudo pip3 install -r /var/spool/syna/jupyterlab_wheels/requirements.txt --no-index --find-links /var/spool/syna/jupyterlab_wheels
 sudo rm -fr /var/spool/syna/jupyterlab_wheels
@@ -32,6 +34,6 @@ JLAB_CORE=$(find /usr/local/share/jupyter/lab/static/jlab_core.*.js)
 sudo sed -ri 's/sandbox:\["allow-same-origin"/&, "allow-scripts"/g; s/this.toolbar.addItem\("refresh",new r.ToolbarButton\(\{icon:u.refreshIcon,onClick:async\(\)=>\{if\(!this.context.model.dirty\)\{await this.context.revert\(\);this.update\(\)\}\},tooltip:t.__\("Rerender HTML Document"\)\}\)\);this.toolbar.addItem\("trust",r.ReactWidget.create\(A.createElement\(w.TrustButtonComponent,\{htmlDocument:this,translator:this.translator\}\)\)\)//g' $JLAB_CORE
 
 # Start and enable JupyterLab service
-sudo ln -sf /lib/systemd/system/jupyterlab.service $SYSTEMD/$SERVICE
+sudo ln -sf /lib/systemd/system/$SERVICE $SYSTEMD/$SERVICE
 sudo systemctl start $SERVICE
 sudo systemctl enable $SERVICE
