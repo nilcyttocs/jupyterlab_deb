@@ -9,15 +9,19 @@ SERVICE=jupyterlab.service
 
 sudo chown root:root /lib/systemd/system/$SERVICE
 
+sudo rm -fr /usr/local/share/jupyter/lab
+
 # Install JupyterLab
 sudo pip3 install -r /var/spool/syna/jupyterlab_wheels/requirements.txt --no-index --find-links /var/spool/syna/jupyterlab_wheels
 sudo rm -fr /var/spool/syna/jupyterlab_wheels
 
 # Set up JupyterLab and IPython configuration
+sudo rm -fr /home/$USER/.jupyter
 if [ ! -d "/home/$USER/.jupyter" ]; then
   sudo -u $USER bash -c 'jupyter notebook --generate-config'
 fi
 sudo -u $USER bash -c 'cp /var/spool/syna/jupyterlab_configs/jupyter_notebook_config.py ~/.jupyter'
+sudo rm -fr /home/$USER/.ipython
 if [ ! -d "/home/$USER/.ipython" ]; then
   sudo -u $USER bash -c 'ipython profile create'
 fi
@@ -31,7 +35,7 @@ sudo rm -fr /var/spool/syna/jupyterlab_app
 
 # Patch JupyterLab to trust HTML/JavaScript content by default
 JLAB_CORE=$(find /usr/local/share/jupyter/lab/static/jlab_core.*.js)
-sudo sed -ri 's/sandbox:\["allow-same-origin"/&, "allow-scripts"/g; s/this.toolbar.addItem\("refresh",new r.ToolbarButton\(\{icon:u.refreshIcon,onClick:async\(\)=>\{if\(!this.context.model.dirty\)\{await this.context.revert\(\);this.update\(\)\}\},tooltip:t.__\("Rerender HTML Document"\)\}\)\);this.toolbar.addItem\("trust",r.ReactWidget.create\(A.createElement\(w.TrustButtonComponent,\{htmlDocument:this,translator:this.translator\}\)\)\)//g' $JLAB_CORE
+sudo sed -ri 's/sandbox:\["allow-same-origin"/&, "allow-scripts"/g; s/if\(o\)\{l=\(0,i.createToolbarFactory\)\(s,o,g,f.id,t\)\}\}/&l=undefined;/g; s/\{name:"refresh",widget:w.createRefreshButton\(e,this.translator\)\},\{name:"trust",widget:w.createTrustButton\(e,this.translator\)\}//g' $JLAB_CORE
 
 # Start and enable JupyterLab service
 sudo ln -sf /lib/systemd/system/$SERVICE $SYSTEMD/$SERVICE

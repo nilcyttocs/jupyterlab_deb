@@ -5,24 +5,24 @@
 #------------------------------------------------------------------------------
 ## A Mixin for applications that start InteractiveShell instances.
 #
-#  Provides configurables for loading extensions and executing files as part of
-#  configuring a Shell environment.
+#      Provides configurables for loading extensions and executing files
+#      as part of configuring a Shell environment.
 #
-#  The following methods should be called by the :meth:`initialize` method of the
-#  subclass:
+#      The following methods should be called by the :meth:`initialize` method
+#      of the subclass:
 #
-#    - :meth:`init_path`
-#    - :meth:`init_shell` (to be implemented by the subclass)
-#    - :meth:`init_gui_pylab`
-#    - :meth:`init_extensions`
-#    - :meth:`init_code`
+#        - :meth:`init_path`
+#        - :meth:`init_shell` (to be implemented by the subclass)
+#        - :meth:`init_gui_pylab`
+#        - :meth:`init_extensions`
+#        - :meth:`init_code`
 
 ## Execute the given command string.
 #  Default: ''
 # c.InteractiveShellApp.code_to_run = ''
 
-## Run the file referenced by the PYTHONSTARTUP environment variable at IPython
-#  startup.
+## Run the file referenced by the PYTHONSTARTUP environment
+#          variable at IPython startup.
 #  Default: True
 # c.InteractiveShellApp.exec_PYTHONSTARTUP = True
 
@@ -62,25 +62,26 @@ c.InteractiveShellApp.exec_lines = [
 # c.InteractiveShellApp.file_to_run = ''
 
 ## Enable GUI event loop integration with any of ('asyncio', 'glut', 'gtk',
-#  'gtk2', 'gtk3', 'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'tk', 'wx', 'gtk2',
-#  'qt4').
-#  Choices: any of ['asyncio', 'glut', 'gtk', 'gtk2', 'gtk3', 'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'tk', 'wx', 'gtk2', 'qt4'] (case-insensitive) or None
+#  'gtk2', 'gtk3', 'gtk4', 'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'qt6', 'tk',
+#  'wx', 'gtk2', 'qt4').
+#  Choices: any of ['asyncio', 'glut', 'gtk', 'gtk2', 'gtk3', 'gtk4', 'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'qt6', 'tk', 'wx', 'gtk2', 'qt4'] (case-insensitive) or None
 #  Default: None
 # c.InteractiveShellApp.gui = None
 
-## Should variables loaded at startup (by startup files, exec_lines, etc.) be
-#  hidden from tools like %who?
+## Should variables loaded at startup (by startup files, exec_lines, etc.)
+#          be hidden from tools like %who?
 #  Default: True
 # c.InteractiveShellApp.hide_initial_ns = True
 
-## If True, IPython will not add the current working directory to sys.path. When
-#  False, the current working directory is added to sys.path, allowing imports of
-#  modules defined in the current directory.
+## If True, IPython will not add the current working directory to sys.path.
+#          When False, the current working directory is added to sys.path, allowing imports
+#          of modules defined in the current directory.
 #  Default: False
 # c.InteractiveShellApp.ignore_cwd = False
 
-## Configure matplotlib for interactive use with the default matplotlib backend.
-#  Choices: any of ['auto', 'agg', 'gtk', 'gtk3', 'inline', 'ipympl', 'nbagg', 'notebook', 'osx', 'pdf', 'ps', 'qt', 'qt4', 'qt5', 'svg', 'tk', 'widget', 'wx'] (case-insensitive) or None
+## Configure matplotlib for interactive use with
+#          the default matplotlib backend.
+#  Choices: any of ['auto', 'agg', 'gtk', 'gtk3', 'gtk4', 'inline', 'ipympl', 'nbagg', 'notebook', 'osx', 'pdf', 'ps', 'qt', 'qt4', 'qt5', 'qt6', 'svg', 'tk', 'widget', 'wx'] (case-insensitive) or None
 #  Default: None
 # c.InteractiveShellApp.matplotlib = None
 
@@ -88,16 +89,17 @@ c.InteractiveShellApp.exec_lines = [
 #  Default: ''
 # c.InteractiveShellApp.module_to_run = ''
 
-## Pre-load matplotlib and numpy for interactive use, selecting a particular
-#  matplotlib backend and loop integration.
-#  Choices: any of ['auto', 'agg', 'gtk', 'gtk3', 'inline', 'ipympl', 'nbagg', 'notebook', 'osx', 'pdf', 'ps', 'qt', 'qt4', 'qt5', 'svg', 'tk', 'widget', 'wx'] (case-insensitive) or None
+## Pre-load matplotlib and numpy for interactive use,
+#          selecting a particular matplotlib backend and loop integration.
+#  Choices: any of ['auto', 'agg', 'gtk', 'gtk3', 'gtk4', 'inline', 'ipympl', 'nbagg', 'notebook', 'osx', 'pdf', 'ps', 'qt', 'qt4', 'qt5', 'qt6', 'svg', 'tk', 'widget', 'wx'] (case-insensitive) or None
 #  Default: None
 # c.InteractiveShellApp.pylab = None
 
-## If true, IPython will populate the user namespace with numpy, pylab, etc. and
-#  an ``import *`` is done from numpy and pylab, when using pylab mode.
+## If true, IPython will populate the user namespace with numpy, pylab, etc.
+#          and an ``import *`` is done from numpy and pylab, when using pylab mode.
 #
-#  When False, pylab mode should not import any names into the user namespace.
+#          When False, pylab mode should not import any names into the user
+#  namespace.
 #  Default: True
 # c.InteractiveShellApp.pylab_import_all = True
 
@@ -140,16 +142,17 @@ c.InteractiveShellApp.exec_lines = [
 #  Default: False
 # c.BaseIPythonApplication.auto_create = False
 
-## Whether to install the default config files into the profile dir. If a new
-#  profile is being created, and IPython contains config files for that profile,
-#  then they will be staged into the new directory.  Otherwise, default config
-#  files will be automatically generated.
+## Whether to install the default config files into the profile dir.
+#          If a new profile is being created, and IPython contains config files for that
+#          profile, then they will be staged into the new directory.  Otherwise,
+#          default config files will be automatically generated.
 #  Default: False
 # c.BaseIPythonApplication.copy_config_files = False
 
 ## Path to an extra config file to load.
 #
-#  If specified, load this config file in addition to any other IPython config.
+#      If specified, load this config file in addition to any other IPython
+#  config.
 #  Default: ''
 # c.BaseIPythonApplication.extra_config_file = ''
 
@@ -188,8 +191,9 @@ c.InteractiveShellApp.exec_lines = [
 #  See also: Application.show_config_json
 # c.BaseIPythonApplication.show_config_json = False
 
-## Create a massive crash report when IPython encounters what may be an internal
-#  error.  The default is to append a short message to the usual traceback
+## Create a massive crash report when IPython encounters what may be an
+#          internal error.  The default is to append a short message to the
+#          usual traceback
 #  Default: False
 # c.BaseIPythonApplication.verbose_crash = False
 
@@ -240,14 +244,15 @@ c.InteractiveShellApp.exec_lines = [
 #  See also: InteractiveShellApp.file_to_run
 # c.TerminalIPythonApp.file_to_run = ''
 
-## If a command or file is given via the command-line, e.g. 'ipython foo.py',
-#  start an interactive shell after executing the file or command.
+## If a command or file is given via the command-line,
+#          e.g. 'ipython foo.py', start an interactive shell after executing the
+#          file or command.
 #  Default: False
 # c.TerminalIPythonApp.force_interact = False
 
 ## Enable GUI event loop integration with any of ('asyncio', 'glut', 'gtk',
-#  'gtk2', 'gtk3', 'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'tk', 'wx', 'gtk2',
-#  'qt4').
+#  'gtk2', 'gtk3', 'gtk4', 'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'qt6', 'tk',
+#  'wx', 'gtk2', 'qt4').
 #  See also: InteractiveShellApp.gui
 # c.TerminalIPythonApp.gui = None
 
@@ -363,8 +368,8 @@ c.InteractiveShellApp.exec_lines = [
 # c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#  Default: "Python 3.7.3 (default, Dec 20 2019, 18:57:59) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.21.0 -- An enhanced Interactive Python. Type '?' for help.\n"
-# c.InteractiveShell.banner1 = "Python 3.7.3 (default, Dec 20 2019, 18:57:59) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.21.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+#  Default: "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.31.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+# c.InteractiveShell.banner1 = "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.31.0 -- An enhanced Interactive Python. Type '?' for help.\n"
 
 ## The part of the banner to be printed after the profile
 #  Default: ''
@@ -397,8 +402,8 @@ c.InteractiveShellApp.exec_lines = [
 #  Default: False
 # c.InteractiveShell.disable_failing_post_execute = False
 
-## If True, anything that would be passed to the pager will be displayed as
-#  regular output instead.
+## If True, anything that would be passed to the pager
+#          will be displayed as regular output instead.
 #  Default: False
 # c.InteractiveShell.display_page = False
 
@@ -527,7 +532,7 @@ c.InteractiveShellApp.exec_lines = [
 
 ## The part of the banner to be printed before the profile
 #  See also: InteractiveShell.banner1
-# c.TerminalInteractiveShell.banner1 = "Python 3.7.3 (default, Dec 20 2019, 18:57:59) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.21.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+# c.TerminalInteractiveShell.banner1 = "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.31.0 -- An enhanced Interactive Python. Type '?' for help.\n"
 
 ## The part of the banner to be printed after the profile
 #  See also: InteractiveShell.banner2
@@ -600,8 +605,8 @@ c.InteractiveShellApp.exec_lines = [
 #  Default: True
 # c.TerminalInteractiveShell.highlight_matching_brackets = True
 
-## The name or class of a Pygments style to use for syntax highlighting. To see
-#  available styles, run `pygmentize -L styles`.
+## The name or class of a Pygments style to use for syntax
+#          highlighting. To see available styles, run `pygmentize -L styles`.
 #  Default: traitlets.Undefined
 # c.TerminalInteractiveShell.highlighting_style = traitlets.Undefined
 
@@ -698,12 +703,11 @@ c.InteractiveShellApp.exec_lines = [
 
 ## Use `raw_input` for the REPL, without completion and prompt colors.
 #
-#  Useful when controlling IPython as a subprocess, and piping STDIN/OUT/ERR.
-#  Known usage are: IPython own testing machinery, and emacs inferior-shell
-#  integration through elpy.
+#              Useful when controlling IPython as a subprocess, and piping STDIN/OUT/ERR. Known usage are:
+#              IPython own testing machinery, and emacs inferior-shell integration through elpy.
 #
-#  This mode default to `True` if the `IPY_TEST_SIMPLE_PROMPT` environment
-#  variable is set, or the current terminal is not a tty.
+#              This mode default to `True` if the `IPY_TEST_SIMPLE_PROMPT`
+#              environment variable is set, or the current terminal is not a tty.
 #  Default: False
 # c.TerminalInteractiveShell.simple_prompt = False
 
@@ -745,38 +749,39 @@ c.InteractiveShellApp.exec_lines = [
 #------------------------------------------------------------------------------
 ## Access the history database without adding to it.
 #
-#  This is intended for use by standalone history tools. IPython shells use
-#  HistoryManager, below, which is a subclass of this.
+#      This is intended for use by standalone history tools. IPython shells use
+#      HistoryManager, below, which is a subclass of this.
 
 ## Options for configuring the SQLite connection
 #
-#  These options are passed as keyword args to sqlite3.connect when establishing
-#  database connections.
+#          These options are passed as keyword args to sqlite3.connect
+#          when establishing database connections.
 #  Default: {}
 # c.HistoryAccessor.connection_options = {}
 
 ## enable the SQLite history
 #
-#  set enabled=False to disable the SQLite history, in which case there will be
-#  no stored history, no SQLite connection, and no background saving thread.
-#  This may be necessary in some threaded environments where IPython is embedded.
+#          set enabled=False to disable the SQLite history,
+#          in which case there will be no stored history, no SQLite connection,
+#          and no background saving thread.  This may be necessary in some
+#          threaded environments where IPython is embedded.
 #  Default: True
 # c.HistoryAccessor.enabled = True
 
 ## Path to file to use for SQLite history database.
 #
-#  By default, IPython will put the history database in the IPython profile
-#  directory.  If you would rather share one history among profiles, you can set
-#  this value in each, so that they are consistent.
+#          By default, IPython will put the history database in the IPython
+#          profile directory.  If you would rather share one history among
+#          profiles, you can set this value in each, so that they are consistent.
 #
-#  Due to an issue with fcntl, SQLite is known to misbehave on some NFS mounts.
-#  If you see IPython hanging, try setting this to something on a local disk,
-#  e.g::
+#          Due to an issue with fcntl, SQLite is known to misbehave on some NFS
+#          mounts.  If you see IPython hanging, try setting this to something on a
+#          local disk, e.g::
 #
-#      ipython --HistoryManager.hist_file=/tmp/ipython_hist.sqlite
+#              ipython --HistoryManager.hist_file=/tmp/ipython_hist.sqlite
 #
-#  you can also use the specific value `:memory:` (including the colon at both
-#  end but not the back ticks), to avoid creating an history file.
+#          you can also use the specific value `:memory:` (including the colon
+#          at both end but not the back ticks), to avoid creating an history file.
 #  Default: ''
 # c.HistoryAccessor.hist_file = ''
 
@@ -811,14 +816,14 @@ c.InteractiveShellApp.exec_lines = [
 #------------------------------------------------------------------------------
 ## An object to manage the profile directory and its resources.
 #
-#  The profile directory is used by all IPython applications, to manage
-#  configuration, logging and security.
+#      The profile directory is used by all IPython applications, to manage
+#      configuration, logging and security.
 #
-#  This object knows how to find, create and manage these directories. This
-#  should be used by any code that wants to handle profiles.
+#      This object knows how to find, create and manage these directories. This
+#      should be used by any code that wants to handle profiles.
 
 ## Set the profile location directly. This overrides the logic used by the
-#  `profile` option.
+#          `profile` option.
 #  Default: ''
 # c.ProfileDir.location = ''
 
@@ -827,25 +832,26 @@ c.InteractiveShellApp.exec_lines = [
 #------------------------------------------------------------------------------
 ## A base formatter class that is configurable.
 #
-#  This formatter should usually be used as the base class of all formatters. It
-#  is a traited :class:`Configurable` class and includes an extensible API for
-#  users to determine how their objects are formatted. The following logic is
-#  used to find a function to format an given object.
+#      This formatter should usually be used as the base class of all formatters.
+#      It is a traited :class:`Configurable` class and includes an extensible
+#      API for users to determine how their objects are formatted. The following
+#      logic is used to find a function to format an given object.
 #
-#  1. The object is introspected to see if it has a method with the name
-#     :attr:`print_method`. If is does, that object is passed to that method
-#     for formatting.
-#  2. If no print method is found, three internal dictionaries are consulted
-#     to find print method: :attr:`singleton_printers`, :attr:`type_printers`
-#     and :attr:`deferred_printers`.
+#      1. The object is introspected to see if it has a method with the name
+#         :attr:`print_method`. If is does, that object is passed to that method
+#         for formatting.
+#      2. If no print method is found, three internal dictionaries are consulted
+#         to find print method: :attr:`singleton_printers`, :attr:`type_printers`
+#         and :attr:`deferred_printers`.
 #
-#  Users should use these dictionaries to register functions that will be used to
-#  compute the format data for their objects (if those objects don't have the
-#  special print methods). The easiest way of using these dictionaries is through
-#  the :meth:`for_type` and :meth:`for_type_by_name` methods.
+#      Users should use these dictionaries to register functions that will be
+#      used to compute the format data for their objects (if those objects don't
+#      have the special print methods). The easiest way of using these
+#      dictionaries is through the :meth:`for_type` and :meth:`for_type_by_name`
+#      methods.
 #
-#  If no function/callable is found to compute the format data, ``None`` is
-#  returned and this format type is not used.
+#      If no function/callable is found to compute the format data, ``None`` is
+#      returned and this format type is not used.
 
 #  Default: {}
 # c.BaseFormatter.deferred_printers = {}
@@ -864,25 +870,25 @@ c.InteractiveShellApp.exec_lines = [
 #------------------------------------------------------------------------------
 ## The default pretty-printer.
 #
-#  This uses :mod:`IPython.lib.pretty` to compute the format data of the object.
-#  If the object cannot be pretty printed, :func:`repr` is used. See the
-#  documentation of :mod:`IPython.lib.pretty` for details on how to write pretty
-#  printers.  Here is a simple example::
+#      This uses :mod:`IPython.lib.pretty` to compute the format data of
+#      the object. If the object cannot be pretty printed, :func:`repr` is used.
+#      See the documentation of :mod:`IPython.lib.pretty` for details on
+#      how to write pretty printers.  Here is a simple example::
 #
-#      def dtype_pprinter(obj, p, cycle):
-#          if cycle:
-#              return p.text('dtype(...)')
-#          if hasattr(obj, 'fields'):
-#              if obj.fields is None:
-#                  p.text(repr(obj))
-#              else:
-#                  p.begin_group(7, 'dtype([')
-#                  for i, field in enumerate(obj.descr):
-#                      if i > 0:
-#                          p.text(',')
-#                          p.breakable()
-#                      p.pretty(field)
-#                  p.end_group(7, '])')
+#          def dtype_pprinter(obj, p, cycle):
+#              if cycle:
+#                  return p.text('dtype(...)')
+#              if hasattr(obj, 'fields'):
+#                  if obj.fields is None:
+#                      p.text(repr(obj))
+#                  else:
+#                      p.begin_group(7, 'dtype([')
+#                      for i, field in enumerate(obj.descr):
+#                          if i > 0:
+#                              p.text(',')
+#                              p.breakable()
+#                          p.pretty(field)
+#                      p.end_group(7, '])')
 
 #  See also: BaseFormatter.deferred_printers
 # c.PlainTextFormatter.deferred_printers = {}
@@ -892,7 +898,7 @@ c.InteractiveShellApp.exec_lines = [
 
 ## Truncate large collections (lists, dicts, tuples, sets) to this size.
 #
-#  Set to 0 to disable truncation.
+#          Set to 0 to disable truncation.
 #  Default: 1000
 # c.PlainTextFormatter.max_seq_length = 1000
 
@@ -928,17 +934,17 @@ c.InteractiveShellApp.exec_lines = [
 #  Default: False
 # c.Completer.debug = False
 
-## Activate greedy completion PENDING DEPRECTION. this is now mostly taken care
-#  of with Jedi.
+## Activate greedy completion
+#          PENDING DEPRECTION. this is now mostly taken care of with Jedi.
 #
-#  This will enable completion on elements of lists, results of function calls,
-#  etc., but can be unsafe because the code is actually evaluated on TAB.
+#          This will enable completion on elements of lists, results of function calls, etc.,
+#          but can be unsafe because the code is actually evaluated on TAB.
 #  Default: False
 # c.Completer.greedy = False
 
-## Experimental: restrict time (in milliseconds) during which Jedi can compute
-#  types. Set to 0 to stop computing types. Non-zero value lower than 100ms may
-#  hurt performance by preventing jedi to build its cache.
+## Experimental: restrict time (in milliseconds) during which Jedi can compute types.
+#          Set to 0 to stop computing types. Non-zero value lower than 100ms may hurt
+#          performance by preventing jedi to build its cache.
 #  Default: 400
 # c.Completer.jedi_compute_type_timeout = 400
 
@@ -986,20 +992,20 @@ c.InteractiveShellApp.exec_lines = [
 
 ## Whether to merge completion results into a single list
 #
-#  If False, only the completion results from the first non-empty completer will
-#  be returned.
+#          If False, only the completion results from the first non-empty
+#          completer will be returned.
 #  Default: True
 # c.IPCompleter.merge_completions = True
 
 ## Instruct the completer to omit private method names
 #
-#  Specifically, when completing on ``object.<tab>``.
+#          Specifically, when completing on ``object.<tab>``.
 #
-#  When 2 [default]: all names that start with '_' will be excluded.
+#          When 2 [default]: all names that start with '_' will be excluded.
 #
-#  When 1: all 'magic' names (``__foo__``) will be excluded.
+#          When 1: all 'magic' names (``__foo__``) will be excluded.
 #
-#  When 0: nothing will be excluded.
+#          When 0: nothing will be excluded.
 #  Choices: any of [0, 1, 2]
 #  Default: 2
 # c.IPCompleter.omit__names = 2
@@ -1014,23 +1020,23 @@ c.InteractiveShellApp.exec_lines = [
 #------------------------------------------------------------------------------
 ## Magics for talking to scripts
 #
-#  This defines a base `%%script` cell magic for running a cell with a program in
-#  a subprocess, and registers a few top-level magics that call %%script with
-#  common interpreters.
+#      This defines a base `%%script` cell magic for running a cell
+#      with a program in a subprocess, and registers a few top-level
+#      magics that call %%script with common interpreters.
 
 ## Extra script cell magics to define
 #
-#  This generates simple wrappers of `%%script foo` as `%%foo`.
+#          This generates simple wrappers of `%%script foo` as `%%foo`.
 #
-#  If you want to add script magics that aren't on your path, specify them in
-#  script_paths
+#          If you want to add script magics that aren't on your path,
+#          specify them in script_paths
 #  Default: []
 # c.ScriptMagics.script_magics = []
 
 ## Dict mapping short 'ruby' names to full paths, such as '/opt/secret/bin/ruby'
 #
-#  Only necessary for items in script_magics where the default path will not find
-#  the right interpreter.
+#          Only necessary for items in script_magics where the default path will not
+#          find the right interpreter.
 #  Default: {}
 # c.ScriptMagics.script_paths = {}
 
@@ -1048,9 +1054,9 @@ c.InteractiveShellApp.exec_lines = [
 #------------------------------------------------------------------------------
 ## Lightweight persistence for python variables.
 #
-#  Provides the %store magic.
+#      Provides the %store magic.
 
-## If True, any %store-d variables will be automatically restored when IPython
-#  starts.
+## If True, any %store-d variables will be automatically restored
+#          when IPython starts.
 #  Default: False
 # c.StoreMagics.autorestore = False
