@@ -1,5 +1,7 @@
 # Configuration file for jupyter-notebook.
 
+c = get_config()  # noqa
+
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
 #------------------------------------------------------------------------------
@@ -17,6 +19,53 @@
 #  Choices: any of [0, 10, 20, 30, 40, 50, 'DEBUG', 'INFO', 'WARN', 'ERROR', 'CRITICAL']
 #  Default: 30
 # c.Application.log_level = 30
+
+## Configure additional log handlers.
+#
+#  The default stderr logs handler is configured by the log_level, log_datefmt
+#  and log_format settings.
+#
+#  This configuration can be used to configure additional handlers (e.g. to
+#  output the log to a file) or for finer control over the default handlers.
+#
+#  If provided this should be a logging configuration dictionary, for more
+#  information see:
+#  https://docs.python.org/3/library/logging.config.html#logging-config-
+#  dictschema
+#
+#  This dictionary is merged with the base logging configuration which defines
+#  the following:
+#
+#  * A logging formatter intended for interactive use called
+#    ``console``.
+#  * A logging handler that writes to stderr called
+#    ``console`` which uses the formatter ``console``.
+#  * A logger with the name of this application set to ``DEBUG``
+#    level.
+#
+#  This example adds a new handler that writes to a file:
+#
+#  .. code-block:: python
+#
+#     c.Application.logging_config = {
+#         'handlers': {
+#             'file': {
+#                 'class': 'logging.FileHandler',
+#                 'level': 'DEBUG',
+#                 'filename': '<path/to/file>',
+#             }
+#         },
+#         'loggers': {
+#             '<application-name>': {
+#                 'level': 'DEBUG',
+#                 # NOTE: if you don't list the default "console"
+#                 # handler here then it will be disabled
+#                 'handlers': ['console', 'file'],
+#             },
+#         }
+#     }
+#  Default: {}
+# c.Application.logging_config = {}
 
 ## Instead of starting the Application, dump configuration to stdout
 #  Default: False
@@ -58,6 +107,10 @@
 ## Set the log level by value or name.
 #  See also: Application.log_level
 # c.JupyterApp.log_level = 30
+
+##
+#  See also: Application.logging_config
+# c.JupyterApp.logging_config = {}
 
 ## Instead of starting the Application, dump configuration to stdout
 #  See also: Application.show_config
@@ -344,6 +397,10 @@ c.NotebookApp.ip = '*'
 ## Set the log level by value or name.
 #  See also: Application.log_level
 # c.NotebookApp.log_level = 30
+
+##
+#  See also: Application.logging_config
+# c.NotebookApp.logging_config = {}
 
 ## The login handler class to use.
 #  Default: 'notebook.auth.login.LoginHandler'
@@ -1084,7 +1141,7 @@ c.NotebookApp.token = ''
 ## A class for computing and verifying notebook signatures.
 
 ## The hashing algorithm used to sign notebooks.
-#  Choices: any of ['md5', 'sha3_384', 'blake2s', 'sha1', 'sha384', 'sha512', 'sha3_256', 'sha256', 'blake2b', 'sha3_224', 'sha3_512', 'sha224']
+#  Choices: any of ['sha384', 'sha3_256', 'blake2s', 'sha512', 'blake2b', 'md5', 'sha3_384', 'sha3_512', 'sha224', 'sha256', 'sha3_224', 'sha1']
 #  Default: 'sha256'
 # c.NotebookNotary.algorithm = 'sha256'
 

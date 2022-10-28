@@ -35,7 +35,7 @@ sudo rm -fr /var/spool/syna/jupyterlab_app
 
 # Patch JupyterLab to trust HTML/JavaScript content by default
 JLAB_CORE=$(find /usr/local/share/jupyter/lab/static/jlab_core.*.js)
-sudo sed -ri 's/sandbox:\["allow-same-origin"/&, "allow-scripts"/g; s/if\(o\)\{l=\(0,i.createToolbarFactory\)\(s,o,g,f.id,t\)\}\}/&l=undefined;/g; s/\{name:"refresh",widget:w.createRefreshButton\(e,this.translator\)\},\{name:"trust",widget:w.createTrustButton\(e,this.translator\)\}//g' $JLAB_CORE
+sudo sed -ri 's/sandbox:\["allow-same-origin"/&, "allow-scripts"/g; s/this.toolbar.addItem\("refresh",new r.ToolbarButton\(\{icon:u.refreshIcon,onClick:async\(\)=>\{if\(!this.context.model.dirty\)\{await this.context.revert\(\);this.update\(\)\}\},tooltip:t.__\("Rerender HTML Document"\)\}\)\);this.toolbar.addItem\("trust",r.ReactWidget.create\(A.createElement\(w.TrustButtonComponent,\{htmlDocument:this,translator:this.translator\}\)\)\)//g; s/function t\(e\)\{const t=e.translator\|\|c.nullTranslator;const n=t.load\("jupyterlab"\);/&return null;/g' $JLAB_CORE
 
 # Start and enable JupyterLab service
 sudo ln -sf /lib/systemd/system/$SERVICE $SYSTEMD/$SERVICE

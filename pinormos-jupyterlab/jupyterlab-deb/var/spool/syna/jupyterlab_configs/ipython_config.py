@@ -1,5 +1,7 @@
 # Configuration file for ipython.
 
+c = get_config()  # noqa
+
 #------------------------------------------------------------------------------
 # InteractiveShellApp(Configurable) configuration
 #------------------------------------------------------------------------------
@@ -125,6 +127,53 @@ c.InteractiveShellApp.exec_lines = [
 #  Default: 30
 # c.Application.log_level = 30
 
+## Configure additional log handlers.
+#
+#  The default stderr logs handler is configured by the log_level, log_datefmt
+#  and log_format settings.
+#
+#  This configuration can be used to configure additional handlers (e.g. to
+#  output the log to a file) or for finer control over the default handlers.
+#
+#  If provided this should be a logging configuration dictionary, for more
+#  information see:
+#  https://docs.python.org/3/library/logging.config.html#logging-config-
+#  dictschema
+#
+#  This dictionary is merged with the base logging configuration which defines
+#  the following:
+#
+#  * A logging formatter intended for interactive use called
+#    ``console``.
+#  * A logging handler that writes to stderr called
+#    ``console`` which uses the formatter ``console``.
+#  * A logger with the name of this application set to ``DEBUG``
+#    level.
+#
+#  This example adds a new handler that writes to a file:
+#
+#  .. code-block:: python
+#
+#     c.Application.logging_config = {
+#         'handlers': {
+#             'file': {
+#                 'class': 'logging.FileHandler',
+#                 'level': 'DEBUG',
+#                 'filename': '<path/to/file>',
+#             }
+#         },
+#         'loggers': {
+#             '<application-name>': {
+#                 'level': 'DEBUG',
+#                 # NOTE: if you don't list the default "console"
+#                 # handler here then it will be disabled
+#                 'handlers': ['console', 'file'],
+#             },
+#         }
+#     }
+#  Default: {}
+# c.Application.logging_config = {}
+
 ## Instead of starting the Application, dump configuration to stdout
 #  Default: False
 # c.Application.show_config = False
@@ -174,6 +223,10 @@ c.InteractiveShellApp.exec_lines = [
 ## Set the log level by value or name.
 #  See also: Application.log_level
 # c.BaseIPythonApplication.log_level = 30
+
+##
+#  See also: Application.logging_config
+# c.BaseIPythonApplication.logging_config = {}
 
 ## Whether to overwrite existing config files when copying
 #  Default: False
@@ -285,6 +338,10 @@ c.InteractiveShellApp.exec_lines = [
 #  See also: Application.log_level
 # c.TerminalIPythonApp.log_level = 30
 
+##
+#  See also: Application.logging_config
+# c.TerminalIPythonApp.logging_config = {}
+
 ## Configure matplotlib for interactive use with
 #  See also: InteractiveShellApp.matplotlib
 # c.TerminalIPythonApp.matplotlib = None
@@ -368,8 +425,8 @@ c.InteractiveShellApp.exec_lines = [
 # c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#  Default: "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.31.0 -- An enhanced Interactive Python. Type '?' for help.\n"
-# c.InteractiveShell.banner1 = "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.31.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+#  Default: "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.34.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+# c.InteractiveShell.banner1 = "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.34.0 -- An enhanced Interactive Python. Type '?' for help.\n"
 
 ## The part of the banner to be printed after the profile
 #  Default: ''
@@ -532,7 +589,7 @@ c.InteractiveShellApp.exec_lines = [
 
 ## The part of the banner to be printed before the profile
 #  See also: InteractiveShell.banner1
-# c.TerminalInteractiveShell.banner1 = "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.31.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+# c.TerminalInteractiveShell.banner1 = "Python 3.7.3 (default, Jan 22 2021, 20:04:44) \nType 'copyright', 'credits' or 'license' for more information\nIPython 7.34.0 -- An enhanced Interactive Python. Type '?' for help.\n"
 
 ## The part of the banner to be printed after the profile
 #  See also: InteractiveShell.banner2
@@ -810,6 +867,40 @@ c.InteractiveShellApp.exec_lines = [
 ## Path to file to use for SQLite history database.
 #  See also: HistoryAccessor.hist_file
 # c.HistoryManager.hist_file = ''
+
+#------------------------------------------------------------------------------
+# MagicsManager(Configurable) configuration
+#------------------------------------------------------------------------------
+## Object that handles all magic-related functionality for IPython.
+
+## Automatically call line magics without requiring explicit % prefix
+#  Default: True
+# c.MagicsManager.auto_magic = True
+
+## Mapping from magic names to modules to load.
+#
+#  This can be used in IPython/IPykernel configuration to declare lazy magics
+#  that will only be imported/registered on first use.
+#
+#  For example::
+#
+#      c.MagicsManager.lazy_magics = {
+#        "my_magic": "slow.to.import",
+#        "my_other_magic": "also.slow",
+#      }
+#
+#  On first invocation of `%my_magic`, `%%my_magic`, `%%my_other_magic` or
+#  `%%my_other_magic`, the corresponding module will be loaded as an ipython
+#  extensions as if you had previously done `%load_ext ipython`.
+#
+#  Magics names should be without percent(s) as magics can be both cell and line
+#  magics.
+#
+#  Lazy loading happen relatively late in execution process, and complex
+#  extensions that manipulate Python/IPython internal state or global state might
+#  not support lazy loading.
+#  Default: {}
+# c.MagicsManager.lazy_magics = {}
 
 #------------------------------------------------------------------------------
 # ProfileDir(LoggingConfigurable) configuration
