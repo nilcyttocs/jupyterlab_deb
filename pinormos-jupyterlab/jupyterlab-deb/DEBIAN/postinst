@@ -29,8 +29,11 @@ sudo -u $USER bash -c 'cp /var/spool/syna/jupyterlab_configs/ipython_config.py ~
 sudo rm -fr /var/spool/syna/jupyterlab_configs
 
 # Update JupyterLab application assets for integration of JupyterDash
+# Update JupyterLab themes to set font to Nunito Sans
 sudo rm -fr /usr/local/share/jupyter/lab
 sudo tar -xmf /var/spool/syna/jupyterlab_app/lab.tar.gz -C /usr/local/share/jupyter
+sudo rm -fr /usr/local/share/jupyter/lab/themes
+sudo cp -r /var/spool/syna/jupyterlab_app/themes /usr/local/share/jupyter/lab/themes
 sudo rm -fr /var/spool/syna/jupyterlab_app
 
 # Patch JupyterLab to trust HTML/JavaScript content by default
