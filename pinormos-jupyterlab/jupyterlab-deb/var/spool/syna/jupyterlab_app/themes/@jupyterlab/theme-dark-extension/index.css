@@ -38,7 +38,7 @@ all of MD as it is not optimized for dense, information rich UIs.
     src: url("../fonts/nunito_sans/nunito-sans-v12-latin-regular.woff2");
     format: ("woff2");
     font-display: swap;
-  }
+  };
 
   /* The dark theme shadows need a bit of work, but this will probably also require work on the core layout
    * colors used in the theme as well. */

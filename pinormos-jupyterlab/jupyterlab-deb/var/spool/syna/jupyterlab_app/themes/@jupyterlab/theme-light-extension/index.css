@@ -38,7 +38,7 @@ all of MD as it is not optimized for dense, information rich UIs.
     src: url("../fonts/nunito_sans/nunito-sans-v12-latin-regular.woff2");
     format: ("woff2");
     font-display: swap;
-  }
+  };
 
   --jp-shadow-base-lightness: 0;
   --jp-shadow-umbra-color: rgba(
