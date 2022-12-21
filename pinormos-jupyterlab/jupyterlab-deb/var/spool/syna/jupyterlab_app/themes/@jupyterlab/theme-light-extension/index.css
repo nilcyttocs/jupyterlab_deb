@@ -33,13 +33,6 @@ all of MD as it is not optimized for dense, information rich UIs.
    * https://material-components-web.appspot.com/elevation.html
    */
 
-  @font-face {
-    font-family: Nunito Sans;
-    src: url("../fonts/nunito_sans/nunito-sans-v12-latin-regular.woff2");
-    format: ("woff2");
-    font-display: swap;
-  };
-
   --jp-shadow-base-lightness: 0;
   --jp-shadow-umbra-color: rgba(
     var(--jp-shadow-base-lightness),
@@ -396,6 +389,11 @@ all of MD as it is not optimized for dense, information rich UIs.
   --jp-icon-contrast-color1: var(--md-green-600);
   --jp-icon-contrast-color2: var(--md-pink-600);
   --jp-icon-contrast-color3: var(--md-blue-600);
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/nunito_sans/nunito-sans-v12-latin-regular.woff2") format("woff2");
 }
 
 /*-----------------------------------------------------------------------------
