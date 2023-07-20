@@ -4,7 +4,7 @@ Description=JupyterLab Service
 [Service]
 Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/bin/bash -c "/usr/local/bin/jupyter-lab --no-browser --notebook-dir=/home/dsdkuser/jupyter/workspace/ --config=/home/dsdkuser/.jupyter/jupyter_notebook_config.py"
+ExecStart=/bin/bash -c "/usr/local/bin/jupyter-lab --no-browser --notebook-dir=/home/dsdkuser/jupyter/workspace/ --config=/home/dsdkuser/.jupyter/jupyter_notebook_config.py > /home/dsdkuser/.jupyter/server_log 2>&1"
 User=dsdkuser
 Group=dsdkuser
 WorkingDirectory=/home/dsdkuser/jupyter/workspace/
